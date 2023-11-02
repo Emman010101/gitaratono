@@ -14,7 +14,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -53,16 +52,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void listener(dynamic obj) {
-    //Gets the audio sample
     var buffer = Float64List.fromList(obj.cast<double>());
     final List<double> audioSample = buffer.toList();
 
-    //Uses pitch_detector_dart library to detect a pitch from the audio sample
     final result = pitchDetector.getPitch(audioSample);
 
-    //If there is a pitch - evaluate it
     if (result.pitched) {
-      //Updates the state with the result
       setState(() {
         currentNote = processPitch(result.pitch);
         pitchStatus = newPitchStatus;

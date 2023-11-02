@@ -42,8 +42,6 @@ class _MyHomePageState extends State<MyHomePage> {
   final _audioRecorder = FlutterAudioCapture();
   final pitchDetector = PitchDetector(44100, 2000);
   String currentNote = "";
-  int alpha = 255;
-  int newAlpha = 0;
   String pitchStatus = "Play any string to start.";
   String newPitchStatus = "";
   Color color = neonGreen;
@@ -67,7 +65,6 @@ class _MyHomePageState extends State<MyHomePage> {
       //Updates the state with the result
       setState(() {
         currentNote = processPitch(result.pitch);
-        alpha = newAlpha;
         pitchStatus = newPitchStatus;
         color = newColor;
       });
@@ -76,10 +73,10 @@ class _MyHomePageState extends State<MyHomePage> {
   
   void statusAndColorChanger(exactPitchInHz, pitchInHz){
     if(pitchInHz < exactPitchInHz-1){
-      //newPitchStatus = (pitchInHz - (exactPitchInHz-1));
+
       newColor = Colors.yellow;
     }else if (pitchInHz >= exactPitchInHz-1 && pitchInHz <= exactPitchInHz+1){
-      //newPitchStatus = "In Tune";
+
       newColor = neonGreen;
     }else{
       newColor = Colors.red;

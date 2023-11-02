@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_audio_capture/flutter_audio_capture.dart';
-import 'package:gitaratono/utils/colors.dart';
+import 'package:Gitaratono/utils/colors.dart';
 import 'package:keep_screen_on/keep_screen_on.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:pitch_detector_dart_update_test/pitch_detector.dart';
